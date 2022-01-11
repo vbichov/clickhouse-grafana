@@ -75,7 +75,7 @@ jobs:
       - name: Sign plugin
         env:
           GRAFANA_API_KEY: ${{ secrets.GRAFANA_API_KEY }} # Requires a Grafana API key from Grafana.com.
-        run: node ./node_modules/@grafana/toolkit/bin/grafana-toolkit.js plugin:sign --rootUrls https://grafana.wixpress.com
+        run: node ./node_modules/@grafana/toolkit/bin/grafana-toolkit.js plugin:sign --rootUrls https://grafana.wixpress.com/,http://grafana8-alert-ng.mon.wixprod.net/,https://grafana8-test.mon.wixprod.net/
 
       - name: Get plugin metadata
         id: metadata
