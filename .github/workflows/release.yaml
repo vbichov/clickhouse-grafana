@@ -111,13 +111,13 @@ jobs:
           echo "::set-output name=checksum::$(cat /tmp/${{ steps.metadata.outputs.archive-checksum }} | cut -d' ' -f1)"
           popd
 
-      - name: Lint plugin
-        run: |
-          git clone https://github.com/grafana/plugin-validator /tmp/plugin-validator
-          pushd /tmp/plugin-validator/pkg/cmd/plugincheck2
-          go install
-          popd
-          plugincheck2 -config=/tmp/plugin-validator/config/strict.yaml -strict /tmp/${{ steps.metadata.outputs.archive }}
+      # - name: Lint plugin
+      #   run: |
+      #     git clone https://github.com/grafana/plugin-validator /tmp/plugin-validator
+      #     pushd /tmp/plugin-validator/pkg/cmd/plugincheck2
+      #     go install
+      #     popd
+      #     plugincheck2 -config=/tmp/plugin-validator/config/strict.yaml -strict /tmp/${{ steps.metadata.outputs.archive }}
 
       - name: Create release
         id: create_release
